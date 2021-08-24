@@ -1,2 +1,2 @@
 # tanks_processing
-A classit two-player tank game
+A classic two-player tank game
