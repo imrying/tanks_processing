@@ -4,27 +4,22 @@ class Tank {
   boolean loaded;
   Bullet bullet;
 
-  int r, g, b;
-
-  Tank (float pos_x, float pos_y, int r_, int g_, int b_) {
+  Tank (float pos_x, float pos_y, int r, int g, int b) {
     pos = new PVector(pos_x, pos_y);
     angle = 50;
     loaded = true;
-
-    r = r_;
-    g = g_;
-    b = b_;
+    c=color(r, g, b);
     bullet = new Bullet(random(0, 1000), -50, 0, 0);
   }
 
   void update() {
-    fill(r, g, b);
+    fill(c);
     pushMatrix();
     translate(pos.x, pos.y);
     rotate(angle);
     noStroke();
     rect(-TANK_WIDTH/2, -TANK_HEIGHT/2, TANK_WIDTH, TANK_HEIGHT);
-    fill(r-40,g-40,b-40);
+    fill(red(c)-40,green(c)-40,blue(c)-40);
     rect(6, TANK_HEIGHT/2+TANK_HEIGHT/8, -12, -TANK_HEIGHT*5/8);
     circle(0, 0, 40);
     popMatrix();
