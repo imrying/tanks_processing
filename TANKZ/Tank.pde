@@ -3,7 +3,6 @@ class Tank {
   public float angle;
   boolean loaded;
   Bullet bullet;
-  float bulletSpeed;
 
   int r, g, b;
 
@@ -16,7 +15,6 @@ class Tank {
     g = g_;
     b = b_;
     bullet = new Bullet(random(0, 1000), -50, 0, 0);
-    bulletSpeed = 10;
   }
 
   void update() {
@@ -40,8 +38,8 @@ class Tank {
       bullet.deathTimer = 100;
       bullet.pos.x = pos.x + sin(-angle)*(TANK_WIDTH+80)/2;
       bullet.pos.y = pos.y + cos(-angle)*(TANK_HEIGHT+50)/2;
-      bullet.vel.x = bulletSpeed*sin(-angle);
-      bullet.vel.y = bulletSpeed*cos(-angle);
+      bullet.vel.x = BULLET_SPEED*sin(-angle);
+      bullet.vel.y = BULLET_SPEED*cos(-angle);
     }
   }
 }
