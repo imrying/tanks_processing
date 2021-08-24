@@ -3,6 +3,7 @@ class Tank {
   public float angle;
   boolean loaded;
   Bullet bullet;
+  color c;
 
   Tank (float pos_x, float pos_y, int r, int g, int b) {
     pos = new PVector(pos_x, pos_y);
