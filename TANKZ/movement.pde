@@ -1,14 +1,8 @@
 //player 1imp
-boolean w;
-boolean s;
-boolean a;
-boolean d;
+boolean w,a,s,d;
 
 //player 2
-boolean up;
-boolean down;
-boolean right;
-boolean left;
+boolean up,down,right,left;
 
 void keyPressed() {
   if  (keyCode == UP) {
