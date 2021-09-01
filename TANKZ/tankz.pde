@@ -11,7 +11,7 @@ Tank p2;
 void setup() {
   
   frameRate(120);
-  size(1000, 800);
+  size(1920, 1080);
   smooth();
   background(255);
   strokeWeight(1);
