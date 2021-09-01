@@ -25,7 +25,7 @@ class LevelController {
 
 
     startupImg = loadImage("Pop-up.png");
-    startTimer = 10;
+    startTimer = 1200;
   }
 
   void update() {
