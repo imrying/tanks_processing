@@ -1,2 +1,2 @@
 # tanks_processing
-A classic two-player tank game
+See https://github.com/imrying/tanks_processing/wiki for all information
