@@ -20,7 +20,7 @@ void setup() {
   smooth();
   p1 = new Tank(width/2, height/2, 91,119,66);
   p2 = new Tank(width/3, height/3, 30,63,90);
-  test_wall = new Wall(width/2, height/2, 100, 200, 2);
+  test_wall = new Wall(width/2-200, height/2, 100, 200, 2);
 }
 void draw() {
   background(255);
