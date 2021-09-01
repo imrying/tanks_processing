@@ -9,27 +9,27 @@ Tank p1;
 Tank p2;
 LevelController levelController;
 
-void settings(){
+void settings() {
   size(1920, 1080);
 }
 
 void setup() {
   frameRate(120);
-  smooth();
+  //smooth();
   background(255);
   strokeWeight(1);
   noStroke();
   smooth();
-  p1 = new Tank(width/2, height/2, 91,119,66);
-  p2 = new Tank(width/3, height/3, 30,63,90);
+  p1 = new Tank(width*4/5, height*4/5, 0, 255, 0);
+  p2 = new Tank(width/5, height*4/5, 255, 0, 0);
   levelController = new LevelController();
 }
 void draw() {
   background(255);
+  levelController.update();
   //textSize(26);
   //text(int (frameRate)+"FPS",20,20);
   Controls();
   p1.update();
   p2.update();
-  levelController.update();
 }

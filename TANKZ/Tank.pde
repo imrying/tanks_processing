@@ -7,7 +7,6 @@ class Tank {
 
   Tank (float pos_x, float pos_y, int r, int g, int b) {
     pos = new PVector(pos_x, pos_y);
-    angle = 50;
     loaded = true;
     c=color(r, g, b);
     bullet = new Bullet(random(0, 1000), -50, 0, 0);
