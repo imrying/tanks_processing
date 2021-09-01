@@ -10,12 +10,11 @@ Tank p2;
 Wall test_wall;
 
 void settings(){
-  frameRate(120);
   size(1920, 1080);
 }
 
 void setup() {
-
+  frameRate(120);
   smooth();
   background(255);
   strokeWeight(1);
