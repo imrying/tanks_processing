@@ -22,7 +22,7 @@ void setup() {
   smooth();
   p1 = new Tank(width/5, height*4/5, 255, 0, 0);
   p2 = new Tank(width*4/5, height*4/5, 0, 255, 0);
-  levelController = new LevelController();
+  levelController = new LevelController(p1,p2,p1.bullet,p2.bullet);
 }
 void draw() {
   background(255);

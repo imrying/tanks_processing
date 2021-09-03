@@ -22,4 +22,13 @@ class Bullet {
     circle(pos.x, pos.y, CIRCLE_RADIUS);
     pos.add(vel);
   }
+  
+  void CheckForCollision()
+  {
+    for (PVector hitbox : hitboxes)
+    {
+      hitbox.x
+    }
+  }
+  
 }
