@@ -1,11 +1,11 @@
 class Wall {
    public PVector pos;
-   public PVector radii;
+   public int radius;
    public float angle;
    
-   Wall (float wall_x, float wall_y, float rad_x, float rad_y, float a) {
+   Wall (float wall_x, float wall_y, int r, float a) {
      pos = new PVector(wall_x,wall_y);
-     radii = new PVector(rad_x, rad_y);
+     radius = r;
      angle = a;
    }
    
@@ -14,7 +14,7 @@ class Wall {
      pushMatrix();
      translate(pos.x, pos.y);
      rotate(angle);
-     ellipse(0, 0, radii.x, radii.y);
+     circle(0, 0, radius);
      popMatrix();
    }
   
