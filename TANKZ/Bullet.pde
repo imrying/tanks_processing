@@ -21,6 +21,7 @@ class Bullet {
     }
     circle(pos.x, pos.y, CIRCLE_RADIUS);
     pos.add(vel);
+    line(pos.x,pos.y,pos.x+vel.x*50,pos.y+vel.y*50);
   }
   
 }

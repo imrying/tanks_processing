@@ -5,6 +5,7 @@ class LevelController {
   public int restartTimer;
   public int startTimer;
   public PImage startupImg;
+  int timeout = 0;
   Tank t1, t2;
   Bullet b1, b2;
 
@@ -55,25 +56,32 @@ class LevelController {
   {
     for (Wall wall : walls)
     {
-      if (Collide(wall.pos.x, wall.pos.y, wall.radius/2, t1.pos.x, t1.pos.y, TANK_WIDTH/2))
+      if (timeout == 0)
       {
-        PVector diffe = new PVector(t1.pos.x-wall.pos.x,t1.pos.y-wall.pos.y);
-        t1.pos = PVector.add(wall.pos, diffe.normalize().mult(TANK_WIDTH/2+wall.radius/2));
-      }
-      if (Collide(wall.pos.x, wall.pos.y, wall.radius/2, t2.pos.x, t2.pos.y, TANK_WIDTH/2))
-      {
-        PVector diffe = new PVector(t2.pos.x-wall.pos.x,t2.pos.y-wall.pos.y);
-        t2.pos = PVector.add(wall.pos, diffe.normalize().mult(TANK_WIDTH/2+wall.radius/2));
-      }
-      if (Collide(wall.pos.x, wall.pos.y, wall.radius/2, b1.pos.x, b1.pos.y, CIRCLE_RADIUS))
-      {
-        //handle bullet/wall collision in here
-        println("bullet hit wall");
-      }
-      if (Collide(wall.pos.x, wall.pos.y, wall.radius/2, b1.pos.x, b2.pos.y, CIRCLE_RADIUS))
-      {
-        //handle bullet/wall collision in here
-        println("bullet2 hit wall");
+        if (Collide(wall.pos.x, wall.pos.y, wall.radius/2, t1.pos.x, t1.pos.y, TANK_WIDTH/2))
+        {
+          PVector diffe = new PVector(t1.pos.x-wall.pos.x, t1.pos.y-wall.pos.y);
+          t1.pos = PVector.add(wall.pos, diffe.normalize().mult(TANK_WIDTH/2+wall.radius/2));
+        }
+        if (Collide(wall.pos.x, wall.pos.y, wall.radius/2, t2.pos.x, t2.pos.y, TANK_WIDTH/2))
+        {
+          PVector diffe = new PVector(t2.pos.x-wall.pos.x, t2.pos.y-wall.pos.y);
+          t2.pos = PVector.add(wall.pos, diffe.normalize().mult(TANK_WIDTH/2+wall.radius/2));
+        }
+        if (Collide(wall.pos.x, wall.pos.y, wall.radius/2, b1.pos.x, b1.pos.y, CIRCLE_RADIUS))
+        {
+          float alpha = PVector.angleBetween(b1.vel, new PVector(wall.pos.x-b1.pos.x, wall.pos.y-b1.pos.y));
+          b1.vel.rotate(2*(alpha-PI/2));
+          timeout = 1000;
+        }
+        if (Collide(wall.pos.x, wall.pos.y, wall.radius/2, b2.pos.x, b2.pos.y, CIRCLE_RADIUS))
+        {
+          float alpha = PVector.angleBetween(b2.vel, new PVector(wall.pos.x-b2.pos.x, wall.pos.y-b2.pos.y));
+          b2.vel.rotate(2*(alpha -PI/2));
+          timeout = 1000;
+        }
+      } else {
+        timeout--;
       }
     }
   }

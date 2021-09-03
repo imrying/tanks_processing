@@ -3,7 +3,7 @@ int TANK_HEIGHT = 80;
 float SPEED = 1.5;
 float CIRCLE_RADIUS = 20;
 float ANGLE_SPEED = 0.035;
-float BULLET_SPEED = 10;
+float BULLET_SPEED = 1;
 
 Tank p1;
 Tank p2;
@@ -17,8 +17,8 @@ void setup() {
   frameRate(120);
   //smooth();
   background(255);
-  strokeWeight(1);
-  noStroke();
+  //strokeWeight(10);
+  //noStroke();
   smooth();
   p1 = new Tank(width/5, height*4/5, 255, 0, 0);
   p2 = new Tank(width*4/5, height*4/5, 0, 255, 0);

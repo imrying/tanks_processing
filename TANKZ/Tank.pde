@@ -17,7 +17,7 @@ class Tank {
     pushMatrix();
     translate(pos.x, pos.y);
     rotate(angle);
-    noStroke();
+    //noStroke();
     rect(-TANK_WIDTH/2, -TANK_HEIGHT/2, TANK_WIDTH, TANK_HEIGHT);
     fill(red(c)-40,green(c)-40,blue(c)-40);
     rect(6, TANK_HEIGHT/2+TANK_HEIGHT/8, -12, -TANK_HEIGHT*5/8);
@@ -30,7 +30,7 @@ class Tank {
   {
     if (bullet.deathTimer == 0)
     {
-      bullet.deathTimer = 100;
+      bullet.deathTimer = 300;
       bullet.pos.x = pos.x + sin(-angle)*(TANK_WIDTH+80)/2;
       bullet.pos.y = pos.y + cos(-angle)*(TANK_HEIGHT+50)/2;
       bullet.vel.x = BULLET_SPEED*sin(-angle);
