@@ -23,12 +23,4 @@ class Bullet {
     pos.add(vel);
   }
   
-  void CheckForCollision()
-  {
-    for (PVector hitbox : hitboxes)
-    {
-      hitbox.x
-    }
-  }
-  
 }
