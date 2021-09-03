@@ -3,7 +3,7 @@ int TANK_HEIGHT = 80;
 float SPEED = 1.5;
 float CIRCLE_RADIUS = 20;
 float ANGLE_SPEED = 0.035;
-float BULLET_SPEED = 1;
+float BULLET_SPEED = 10;
 
 Tank p1;
 Tank p2;

@@ -1,4 +1,4 @@
-public class Hitbox
+/*public class Hitbox
 {
   public float xpos, ypos, radius;
   public int id;
@@ -10,3 +10,5 @@ public class Hitbox
     radius = r;
   }
 }
+
+*/

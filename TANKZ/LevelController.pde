@@ -76,6 +76,26 @@ class LevelController {
         float alpha = PVector.angleBetween(b2.vel, new PVector(wall.pos.x-b2.pos.x, wall.pos.y-b2.pos.y));
         b2.vel.rotate(2*(alpha -PI/2));
       }
+      if (Collide(t1.pos.x, t1.pos.y, TANK_WIDTH/1.5, b2.pos.x, b2.pos.y, CIRCLE_RADIUS))
+      {
+        t1.HideTank();
+        b2.HideBullet();
+      }
+      if (Collide(t1.pos.x, t1.pos.y, TANK_WIDTH/1.5, b1.pos.x, b1.pos.y, CIRCLE_RADIUS))
+      {
+        t1.HideTank();
+        b1.HideBullet();
+      }
+      if (Collide(t2.pos.x, t2.pos.y, TANK_WIDTH/1.5, b2.pos.x, b2.pos.y, CIRCLE_RADIUS))
+      {
+        t2.HideTank();
+        b2.HideBullet();
+      }
+      if (Collide(t2.pos.x, t2.pos.y, TANK_WIDTH/1.5, b1.pos.x, b1.pos.y, CIRCLE_RADIUS))
+      {
+        t2.HideTank();
+        b1.HideBullet();
+      }
     }
   }
 

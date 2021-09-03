@@ -19,7 +19,7 @@ class Tank {
     rotate(angle);
     //noStroke();
     rect(-TANK_WIDTH/2, -TANK_HEIGHT/2, TANK_WIDTH, TANK_HEIGHT);
-    fill(red(c)-40,green(c)-40,blue(c)-40);
+    fill(red(c)-40, green(c)-40, blue(c)-40);
     rect(6, TANK_HEIGHT/2+TANK_HEIGHT/8, -12, -TANK_HEIGHT*5/8);
     circle(0, 0, 40);
     popMatrix();
@@ -36,5 +36,10 @@ class Tank {
       bullet.vel.x = BULLET_SPEED*sin(-angle);
       bullet.vel.y = BULLET_SPEED*cos(-angle);
     }
+  }
+  void HideTank(){
+    this.pos.x = -1000;
+    this.pos.y = -1000;
+    
   }
 }
