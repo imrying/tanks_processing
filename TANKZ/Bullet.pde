@@ -12,16 +12,19 @@ class Bullet {
   {
     if (deathTimer == 0)
     {
-      pos = new PVector(random(0, 1000), -50);
+      pos = new PVector(-50, -50);
       vel = new PVector(0, 0);
-    }
-    else
+    } else
     {
       deathTimer--;
     }
     circle(pos.x, pos.y, CIRCLE_RADIUS);
     pos.add(vel);
-    line(pos.x,pos.y,pos.x+vel.x*50,pos.y+vel.y*50);
+    line(pos.x, pos.y, pos.x+vel.x*50, pos.y+vel.y*50);
   }
-  
+
+  void HideBullet() {
+    this.pos.x = -500;
+    this.pos.y = -500;
+  }
 }
