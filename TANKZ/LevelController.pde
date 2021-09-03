@@ -7,17 +7,17 @@ class LevelController {
   public PImage startupImg;
 
   LevelController() {
-    walls.add(new Wall(332, 255, 280, 125, -PI/4));
-    walls.add(new Wall(756, 156, 100, 100, 0));
-    walls.add(new Wall(990, 347, 150, 150, 0));
-    walls.add(new Wall(1570, 240, 400, 200, -2*PI/10));
-    walls.add(new Wall(1570, 620, 350, 200, -8*PI/10));
-    walls.add(new Wall(1680, 920, 140, 140, 1.6));
-    walls.add(new Wall(1180, 750, 550, 300, -7*PI/10));
-    walls.add(new Wall(650, 700, 400, 200, 0));
-    walls.add(new Wall(250, 850, 150, 300, 0));
-    walls.add(new Wall(800, 1100, 550, 290, 0));
-    walls.add(new Wall(600, 400, 300, 100, PI/6));
+    walls.add(new Wall(332, 255, 300));
+    walls.add(new Wall(756, 156, 200));
+    walls.add(new Wall(1100, 350, 175));
+    walls.add(new Wall(1570, 240, 200));
+    walls.add(new Wall(1570, 620, 200));
+    walls.add(new Wall(1680, 920, 200));
+    walls.add(new Wall(1180, 750, 275));
+    walls.add(new Wall(650, 700, 200));
+    walls.add(new Wall(250, 850, 175));
+    walls.add(new Wall(800, 1100, 275));
+    walls.add(new Wall(600, 400, 200));
 
 
 
@@ -25,7 +25,7 @@ class LevelController {
 
 
     startupImg = loadImage("Pop-up.png");
-    startTimer = 1200;
+    startTimer = 30;
   }
 
   void update() {
