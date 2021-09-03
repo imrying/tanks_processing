@@ -22,4 +22,5 @@ class Bullet {
     circle(pos.x, pos.y, CIRCLE_RADIUS);
     pos.add(vel);
   }
+  
 }
