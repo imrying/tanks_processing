@@ -70,7 +70,7 @@ class LevelController {
         PVector commonTangent = new PVector(wall.pos.y-b1.pos.y, b1.pos.x-wall.pos.x);
         float dotProduct = b1.vel.dot(commonTangent);
         float tangentLength = commonTangent.dist(new PVector(0, 0));
-        PVector projection = commonTangent.mult(2*dotProduct/(tangentLength*tangentLength)).add(b1.vel.mult(-1));
+        PVector projection = commonTangent.mult(dotProduct/(tangentLength*tangentLength)).add(b1.vel.mult(-1));
         b1.vel.mult(-1);
         b1.vel.add(projection.mult(2));
       }
