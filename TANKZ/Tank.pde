@@ -19,7 +19,7 @@ class Tank {
     rotate(angle);
     //noStroke();
     rect(-TANK_WIDTH/2, -TANK_HEIGHT/2, TANK_WIDTH, TANK_HEIGHT);
-    fill(red(c)-40, green(c)-40, blue(c)-40);
+    fill(red(c)-60, green(c)-60, blue(c)-60);
     rect(6, TANK_HEIGHT/2+TANK_HEIGHT/8, -12, -TANK_HEIGHT*5/8);
     circle(0, 0, 40);
     popMatrix();
@@ -54,7 +54,6 @@ class Tank {
     }
   }
   void HideTank() {
-    this.pos.x = -1000;
-    this.pos.y = -1000;
+    pos = new PVector(-1000,-1000);
   }
 }

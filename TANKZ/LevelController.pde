@@ -39,6 +39,8 @@ class LevelController {
         t2.pos = new PVector(random(width), random(height));
         firstSpawn=false;
         CreateWalls();
+        b1.HideBullet();
+        b2.HideBullet();
       }
 
       for (Wall wall : walls) {
