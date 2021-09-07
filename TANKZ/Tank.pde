@@ -46,7 +46,7 @@ class Tank {
   {
     if (bullet.deathTimer == 0)
     {
-      bullet.deathTimer = 300;
+      bullet.deathTimer = 600;
       bullet.pos.x = pos.x + sin(-angle)*(TANK_WIDTH+80)/2;
       bullet.pos.y = pos.y + cos(-angle)*(TANK_HEIGHT+50)/2;
       bullet.vel.x = BULLET_SPEED*sin(-angle);

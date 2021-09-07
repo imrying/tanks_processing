@@ -1,8 +1,8 @@
 int TANK_WIDTH = 50;
 int TANK_HEIGHT = 80;
-float SPEED = 1.5;
+float SPEED = 3;
 float CIRCLE_RADIUS = 10;
-float ANGLE_SPEED = 0.035;
+float ANGLE_SPEED = 0.045;
 float BULLET_SPEED = 5;
 
 Tank p1;
@@ -15,10 +15,8 @@ void settings() {
 
 void setup() {
   frameRate(120);
-  //smooth();
   background(255);
-  //strokeWeight(10);
-  //noStroke();
+  noStroke();
   smooth();
   p1 = new Tank(width/5, height*4/5, 255, 0, 0);
   p2 = new Tank(width*4/5, height*4/5, 0, 255, 0);
@@ -27,8 +25,6 @@ void setup() {
 void draw() {
   background(255);
 
-  //textSize(26);
-  //text(int (frameRate)+"FPS",20,20);
   Controls();
   levelController.update();
   p1.update();

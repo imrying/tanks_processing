@@ -79,7 +79,7 @@ void Controls()
     p1.pos.add(new PVector(sin(-p1.angle), cos(-p1.angle)).normalize().mult(SPEED));
   }
   if (s) {
-    p1.pos.add(new PVector(sin(-p1.angle), cos(-p1.angle)).normalize().mult(-1*SPEED));
+    p1.pos.add(new PVector(sin(-p1.angle), cos(-p1.angle)).normalize().mult(-0.6*SPEED));
   }
   if (d) {
     p1.angle += ANGLE_SPEED;
@@ -91,7 +91,7 @@ void Controls()
     p2.pos.add(new PVector(sin(-p2.angle), cos(-p2.angle)).normalize().mult(SPEED));
   }
   if (down) {
-    p2.pos.add(new PVector(sin(-p2.angle), cos(-p2.angle)).normalize().mult(-1*SPEED));
+    p2.pos.add(new PVector(sin(-p2.angle), cos(-p2.angle)).normalize().mult(-0.6*SPEED));
   }
   if (right) {
     p2.angle += ANGLE_SPEED;
