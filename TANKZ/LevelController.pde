@@ -1,7 +1,5 @@
 class LevelController {
   ArrayList<Wall> walls = new ArrayList<Wall>();
-  public int p1Score;
-  public int p2Score;
   public int restartTimer;
   public int startTimer;
   public PImage startupImg;
