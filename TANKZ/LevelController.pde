@@ -16,6 +16,8 @@ class LevelController {
     t2 = tank2;
     b1 = bullet1;
     b2 = bullet2;
+    p1Score = 0;
+    p2Score = 0;
 
     startupImg = loadImage("Pop-up.png");
     startTimer = 30;
@@ -87,21 +89,25 @@ class LevelController {
       {
         t1.HideTank();
         b2.HideBullet();
+        p2Score++;
       }
       if (Collide(t1.pos.x, t1.pos.y, TANK_WIDTH/1.5, b1.pos.x, b1.pos.y, CIRCLE_RADIUS))
       {
         t1.HideTank();
         b1.HideBullet();
+        p2Score++;
       }
       if (Collide(t2.pos.x, t2.pos.y, TANK_WIDTH/1.5, b2.pos.x, b2.pos.y, CIRCLE_RADIUS))
       {
         t2.HideTank();
         b2.HideBullet();
+        p1Score++;
       }
       if (Collide(t2.pos.x, t2.pos.y, TANK_WIDTH/1.5, b1.pos.x, b1.pos.y, CIRCLE_RADIUS))
       {
         t2.HideTank();
         b1.HideBullet();
+        p1Score++;
       }
     }
   }
@@ -110,5 +116,12 @@ class LevelController {
   {
     float dist = sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
     return (dist < r1+r2);
+  }
+  int getScorep1() {
+    return p1Score;
+  }
+  int getScorep2() {
+    
+    return p2Score;
   }
 }
