@@ -48,6 +48,7 @@ class LevelController {
     walls.add(new Wall(650, 700, 200));
     walls.add(new Wall(250, 850, 175));
     walls.add(new Wall(800, 1100, 275));
+    walls.add(new Wall(800, -20, 275));
     walls.add(new Wall(600, 400, 200));
   }
 
