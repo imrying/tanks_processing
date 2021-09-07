@@ -3,6 +3,8 @@ class LevelController {
   public int restartTimer;
   public int startTimer;
   public PImage startupImg;
+  int p1Score;
+  int p2Score;
   Tank t1, t2;
   Bullet b1, b2;
 
@@ -32,6 +34,10 @@ class LevelController {
         wall.update();
       }
     }
+    textSize(50);
+    text(p1Score, 20, 50);
+    text(p2Score, width-50, 50);
+
 
     CollisionDetection();
   }
@@ -115,11 +121,5 @@ class LevelController {
     float dist = sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
     return (dist < r1+r2);
   }
-  int getScorep1() {
-    return p1Score;
-  }
-  int getScorep2() {
-    
-    return p2Score;
-  }
+
 }
