@@ -24,22 +24,37 @@ class Tank {
     circle(0, 0, 40);
     popMatrix();
     bullet.Update();
+
+     if (pos.x > width && pos.x < (width + 100))
+    {
+      pos.x -= width;
+    } else if (pos.x < 0 && pos.x > -100)
+    {
+      pos.x += width;
+    }
+
+    if (pos.y > height && pos.y < height + 100)
+    {
+      pos.y -= height;
+    } else if (pos.y < 0 && pos.y > -100)
+    {
+      pos.y += height;
+    }
   }
 
   void Shoot()
   {
     if (bullet.deathTimer == 0)
     {
-      bullet.deathTimer = 300;
+      bullet.deathTimer = 600;
       bullet.pos.x = pos.x + sin(-angle)*(TANK_WIDTH+80)/2;
       bullet.pos.y = pos.y + cos(-angle)*(TANK_HEIGHT+50)/2;
       bullet.vel.x = BULLET_SPEED*sin(-angle);
       bullet.vel.y = BULLET_SPEED*cos(-angle);
     }
   }
-  void HideTank(){
+  void HideTank() {
     this.pos.x = -1000;
     this.pos.y = -1000;
-    
   }
 }

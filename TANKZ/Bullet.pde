@@ -21,6 +21,24 @@ class Bullet {
     circle(pos.x, pos.y, CIRCLE_RADIUS*2);
     pos.add(vel);
     line(pos.x, pos.y, pos.x+vel.x*50, pos.y+vel.y*50);
+
+
+
+    if (pos.x > width && pos.x < (width + 100))
+    {
+      pos.x -= width;
+    } else if (pos.x < 0 && pos.x > -100)
+    {
+      pos.x += width;
+    }
+
+    if (pos.y > height && pos.y < height + 100)
+    {
+      pos.y -= height;
+    } else if (pos.y < 0 && pos.y > -100)
+    {
+      pos.y += height;
+    }
   }
 
   void HideBullet() {
