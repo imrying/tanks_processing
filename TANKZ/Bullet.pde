@@ -18,7 +18,7 @@ class Bullet {
     {
       deathTimer--;
     }
-    circle(pos.x, pos.y, CIRCLE_RADIUS);
+    circle(pos.x, pos.y, CIRCLE_RADIUS*2);
     pos.add(vel);
     line(pos.x, pos.y, pos.x+vel.x*50, pos.y+vel.y*50);
   }
