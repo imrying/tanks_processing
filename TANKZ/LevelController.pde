@@ -68,18 +68,32 @@ class LevelController {
 
   void CreateWalls()
   {
-    walls.add(new Wall(332, 255, 300));
-    walls.add(new Wall(756, 156, 200));
-    walls.add(new Wall(1100, 350, 175));
-    walls.add(new Wall(1570, 240, 200));
-    walls.add(new Wall(1570, 620, 200));
-    walls.add(new Wall(1680, 920, 200));
-    walls.add(new Wall(1180, 750, 275));
-    walls.add(new Wall(650, 700, 200));
-    walls.add(new Wall(250, 850, 175));
-    walls.add(new Wall(800, 1100, 275));
-    walls.add(new Wall(800, -20, 275));
-    walls.add(new Wall(600, 400, 200));
+    walls.add(new Wall(300, 500, 289));
+    walls.add(new Wall(243, 900, 192));
+    walls.add(new Wall(-50, 400, 350));
+    walls.add(new Wall(1970, 400, 350));
+    walls.add(new Wall(820, 148, 78));
+    walls.add(new Wall(760, 770, 309));
+    walls.add(new Wall(523, 100, 342));
+    walls.add(new Wall(523, 1180, 342));
+    walls.add(new Wall(10, 50, 155));
+    walls.add(new Wall(10, 1130, 155));
+    walls.add(new Wall(1930, 50, 155));
+    walls.add(new Wall(1930, 1130, 155));
+    walls.add(new Wall(1302, 342, 460));
+    walls.add(new Wall(1342, 1050, 342));
+    walls.add(new Wall(1342, -30, 342));
+    walls.add(new Wall(1097, 701, 78));
+    walls.add(new Wall(637, 421, 50));
+    walls.add(new Wall(860, 398, 89));
+    walls.add(new Wall(95, 690, 120));
+    walls.add(new Wall(460, 720, 108));
+    walls.add(new Wall(1000, 0, 131));
+    walls.add(new Wall(1000, 1080, 131));
+    walls.add(new Wall(1570, 690, 170));
+    walls.add(new Wall(1780, 901, 111));
+    walls.add(new Wall(220, 170, 104));
+    walls.add(new Wall(1690, 200, 132));
   }
 
   void CollisionDetection()
@@ -100,7 +114,7 @@ class LevelController {
       {
         PVector diffe = new PVector(b1.pos.x-wall.pos.x, b1.pos.y-wall.pos.y);
         b1.pos = PVector.add(wall.pos, diffe.normalize().mult(CIRCLE_RADIUS+wall.radius/2));
-        
+
         PVector commonTangent = new PVector(wall.pos.y-b1.pos.y, b1.pos.x-wall.pos.x);
         float dotProduct = b1.vel.dot(commonTangent);
         float tangentLength = commonTangent.dist(new PVector(0, 0));
@@ -112,7 +126,7 @@ class LevelController {
       {
         PVector diffe = new PVector(b2.pos.x-wall.pos.x, b2.pos.y-wall.pos.y);
         b2.pos = PVector.add(wall.pos, diffe.normalize().mult(CIRCLE_RADIUS+wall.radius/2));
-        
+
         PVector commonTangent = new PVector(wall.pos.y-b2.pos.y, b2.pos.x-wall.pos.x);
         float dotProduct = b2.vel.dot(commonTangent);
         float tangentLength = commonTangent.dist(new PVector(0, 0));
