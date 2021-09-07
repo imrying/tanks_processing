@@ -55,7 +55,6 @@ class LevelController {
   {
     for (Wall wall : walls)
     {
-
       if (Collide(wall.pos.x, wall.pos.y, wall.radius/2, t1.pos.x, t1.pos.y, TANK_WIDTH/2))
       {
         PVector diffe = new PVector(t1.pos.x-wall.pos.x, t1.pos.y-wall.pos.y);
@@ -68,13 +67,21 @@ class LevelController {
       }
       if (Collide(wall.pos.x, wall.pos.y, wall.radius/2, b1.pos.x, b1.pos.y, CIRCLE_RADIUS))
       {
-        float alpha = PVector.angleBetween(b1.vel, new PVector(wall.pos.x-b1.pos.x, wall.pos.y-b1.pos.y));
-        b1.vel.rotate(2*(alpha-PI/2));
+        PVector commonTangent = new PVector(wall.pos.y-b1.pos.y, b1.pos.x-wall.pos.x);
+        float dotProduct = b1.vel.dot(commonTangent);
+        float tangentLength = commonTangent.dist(new PVector(0, 0));
+        PVector projection = commonTangent.mult(2*dotProduct/(tangentLength*tangentLength)).add(b1.vel.mult(-1));
+        b1.vel.mult(-1);
+        b1.vel.add(projection.mult(2));
       }
       if (Collide(wall.pos.x, wall.pos.y, wall.radius/2, b2.pos.x, b2.pos.y, CIRCLE_RADIUS))
       {
-        float alpha = PVector.angleBetween(b2.vel, new PVector(wall.pos.x-b2.pos.x, wall.pos.y-b2.pos.y));
-        b2.vel.rotate(2*(alpha -PI/2));
+        PVector commonTangent = new PVector(wall.pos.y-b2.pos.y, b2.pos.x-wall.pos.x);
+        float dotProduct = b2.vel.dot(commonTangent);
+        float tangentLength = commonTangent.dist(new PVector(0, 0));
+        PVector projection = commonTangent.mult(dotProduct/(tangentLength*tangentLength));
+        b2.vel.mult(-1);
+        b2.vel.add(projection.mult(2));
       }
       if (Collide(t1.pos.x, t1.pos.y, TANK_WIDTH/1.5, b2.pos.x, b2.pos.y, CIRCLE_RADIUS))
       {
