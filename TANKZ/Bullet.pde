@@ -42,7 +42,7 @@ class Bullet {
   }
 
   void HideBullet() {
-    this.pos.x = -500;
-    this.pos.y = -500;
+    pos = new PVector(-500,-500);
+    vel = new PVector(0,0);
   }
 }
