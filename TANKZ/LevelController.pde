@@ -98,6 +98,9 @@ class LevelController {
       }
       if (Collide(wall.pos.x, wall.pos.y, wall.radius/2, b1.pos.x, b1.pos.y, CIRCLE_RADIUS))
       {
+        PVector diffe = new PVector(b1.pos.x-wall.pos.x, b1.pos.y-wall.pos.y);
+        b1.pos = PVector.add(wall.pos, diffe.normalize().mult(CIRCLE_RADIUS+wall.radius/2));
+        
         PVector commonTangent = new PVector(wall.pos.y-b1.pos.y, b1.pos.x-wall.pos.x);
         float dotProduct = b1.vel.dot(commonTangent);
         float tangentLength = commonTangent.dist(new PVector(0, 0));
@@ -107,6 +110,9 @@ class LevelController {
       }
       if (Collide(wall.pos.x, wall.pos.y, wall.radius/2, b2.pos.x, b2.pos.y, CIRCLE_RADIUS))
       {
+        PVector diffe = new PVector(b2.pos.x-wall.pos.x, b2.pos.y-wall.pos.y);
+        b2.pos = PVector.add(wall.pos, diffe.normalize().mult(CIRCLE_RADIUS+wall.radius/2));
+        
         PVector commonTangent = new PVector(wall.pos.y-b2.pos.y, b2.pos.x-wall.pos.x);
         float dotProduct = b2.vel.dot(commonTangent);
         float tangentLength = commonTangent.dist(new PVector(0, 0));
