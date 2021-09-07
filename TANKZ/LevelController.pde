@@ -12,7 +12,7 @@ class LevelController {
 
   LevelController(Tank tank1, Tank tank2, Bullet bullet1, Bullet bullet2) {
 
-    CreateWalls();
+
 
     t1 = tank1;
     t2 = tank2;
@@ -34,32 +34,33 @@ class LevelController {
       image(startupImg, 0, 0);
     } else
     {
-      textSize(50);
-      fill(255,0,0);
-      text(p1Score, 20, 50);
-      fill(0,255,0);
-      text(p2Score, width-50, 50);
       if (firstSpawn) {
         t1.pos = new PVector(random(width), random(height));
         t2.pos = new PVector(random(width), random(height));
         firstSpawn=false;
+        CreateWalls();
       }
-      
+
       for (Wall wall : walls) {
         wall.update();
       }
     }
-   if (restartTimer > 0)
-   {
-     restartTimer--;
-   }
-   
-   if (restartTimer == 0) 
-   {
-     ResetLevel();
-   }
-  
-    
+    if (restartTimer > 0)
+    {
+      restartTimer--;
+    }
+
+    if (restartTimer == 0) 
+    {
+      ResetLevel();
+    }
+
+    textSize(50);
+    fill(255, 0, 0);
+    text(p1Score, 20, 50);
+    fill(0, 255, 0);
+
+    text(p2Score, width-70, 50);
 
 
 
@@ -76,10 +77,10 @@ class LevelController {
     walls.add(new Wall(760, 770, 309));
     walls.add(new Wall(523, 100, 342));
     walls.add(new Wall(523, 1180, 342));
-    walls.add(new Wall(10, 50, 155));
-    walls.add(new Wall(10, 1130, 155));
-    walls.add(new Wall(1930, 50, 155));
-    walls.add(new Wall(1930, 1130, 155));
+    walls.add(new Wall(10, 50, 170));
+    walls.add(new Wall(10, 1130, 170));
+    walls.add(new Wall(1930, 50, 170));
+    walls.add(new Wall(1930, 1130, 170));
     walls.add(new Wall(1302, 342, 460));
     walls.add(new Wall(1342, 1050, 342));
     walls.add(new Wall(1342, -30, 342));
@@ -161,7 +162,6 @@ class LevelController {
         b1.HideBullet();
         p1Score++;
         restartTimer = 360;
-
       }
     }
   }
@@ -171,12 +171,11 @@ class LevelController {
     float dist = sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
     return (dist < r1+r2);
   }
-  
-  void ResetLevel(){
+
+  void ResetLevel() {
     b1.HideBullet();
     b2.HideBullet();
     restartTimer = -1;
     firstSpawn = true;
   }
-
 }

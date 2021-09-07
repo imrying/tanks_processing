@@ -31,7 +31,5 @@ void draw() {
   p1.update();
   p2.update();
   
-  //scorecount
-  
   
 }
