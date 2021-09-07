@@ -2,6 +2,7 @@ class LevelController {
   ArrayList<Wall> walls = new ArrayList<Wall>();
   public int restartTimer;
   public int startTimer;
+  public boolean firstSpawn;
   public PImage startupImg;
   int p1Score;
   int p2Score;
@@ -21,6 +22,7 @@ class LevelController {
 
     startupImg = loadImage("Pop-up.png");
     startTimer = 30;
+    firstSpawn = true;
   }
 
   void update() {
@@ -30,6 +32,12 @@ class LevelController {
       image(startupImg, 0, 0);
     } else
     {
+      if (firstSpawn) {
+        t1.pos = new PVector(random(width), random(height));
+        t2.pos = new PVector(random(width), random(height));
+        firstSpawn=false;
+      }
+      
       for (Wall wall : walls) {
         wall.update();
       }

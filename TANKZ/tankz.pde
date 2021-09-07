@@ -30,6 +30,7 @@ void draw() {
   //textSize(26);
   //text(int (frameRate)+"FPS",20,20);
   Controls();
+  
   levelController.update();
   p1.update();
   p2.update();
