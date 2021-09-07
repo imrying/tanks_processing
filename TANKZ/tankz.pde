@@ -18,7 +18,7 @@ void setup() {
   //smooth();
   background(255);
   //strokeWeight(10);
-  //noStroke();
+  noStroke();
   smooth();
   p1 = new Tank(width/5, height*4/5, 255, 0, 0);
   p2 = new Tank(width*4/5, height*4/5, 0, 255, 0);

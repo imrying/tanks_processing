@@ -4,6 +4,7 @@ class LevelController {
   public int startTimer;
   public boolean firstSpawn;
   public PImage startupImg;
+
   int p1Score;
   int p2Score;
   Tank t1, t2;
@@ -19,9 +20,10 @@ class LevelController {
     b2 = bullet2;
     p1Score = 0;
     p2Score = 0;
+    restartTimer = -1;
 
     startupImg = loadImage("Pop-up.png");
-    startTimer = 30;
+    startTimer = 500;
     firstSpawn = true;
   }
 
@@ -32,6 +34,11 @@ class LevelController {
       image(startupImg, 0, 0);
     } else
     {
+      textSize(50);
+      fill(255,0,0);
+      text(p1Score, 20, 50);
+      fill(0,255,0);
+      text(p2Score, width-50, 50);
       if (firstSpawn) {
         t1.pos = new PVector(random(width), random(height));
         t2.pos = new PVector(random(width), random(height));
@@ -42,9 +49,18 @@ class LevelController {
         wall.update();
       }
     }
-    textSize(50);
-    text(p1Score, 20, 50);
-    text(p2Score, width-50, 50);
+   if (restartTimer > 0)
+   {
+     restartTimer--;
+   }
+   
+   if (restartTimer == 0) 
+   {
+     ResetLevel();
+   }
+  
+    
+
 
 
     CollisionDetection();
@@ -102,24 +118,29 @@ class LevelController {
         t1.HideTank();
         b2.HideBullet();
         p2Score++;
+        restartTimer = 360;
       }
       if (Collide(t1.pos.x, t1.pos.y, TANK_WIDTH/1.5, b1.pos.x, b1.pos.y, CIRCLE_RADIUS))
       {
         t1.HideTank();
         b1.HideBullet();
         p2Score++;
+        restartTimer = 360;
       }
       if (Collide(t2.pos.x, t2.pos.y, TANK_WIDTH/1.5, b2.pos.x, b2.pos.y, CIRCLE_RADIUS))
       {
         t2.HideTank();
         b2.HideBullet();
         p1Score++;
+        ResetLevel();
       }
       if (Collide(t2.pos.x, t2.pos.y, TANK_WIDTH/1.5, b1.pos.x, b1.pos.y, CIRCLE_RADIUS))
       {
         t2.HideTank();
         b1.HideBullet();
         p1Score++;
+        restartTimer = 360;
+
       }
     }
   }
@@ -128,6 +149,13 @@ class LevelController {
   {
     float dist = sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
     return (dist < r1+r2);
+  }
+  
+  void ResetLevel(){
+    b1.HideBullet();
+    b2.HideBullet();
+    restartTimer = -1;
+    firstSpawn = true;
   }
 
 }
