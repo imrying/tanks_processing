@@ -24,6 +24,22 @@ class Tank {
     circle(0, 0, 40);
     popMatrix();
     bullet.Update();
+
+    if (pos.x > width)
+    {
+      pos.x -= width;
+    } else if (pos.x < 0)
+    {
+      pos.x += width;
+    }
+
+    if (pos.y > height)
+    {
+      pos.y -= height;
+    } else if (pos.y < 0)
+    {
+      pos.y += height;
+    }
   }
 
   void Shoot()
@@ -37,9 +53,8 @@ class Tank {
       bullet.vel.y = BULLET_SPEED*cos(-angle);
     }
   }
-  void HideTank(){
+  void HideTank() {
     this.pos.x = -1000;
     this.pos.y = -1000;
-    
   }
 }
