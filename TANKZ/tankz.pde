@@ -14,13 +14,13 @@ void settings() {
 }
 
 void setup() {
-  frameRate(60);
+  frameRate(120);
   background(255);
   noStroke();
   smooth();
   p1 = new Tank(width/5, height*4/5, 255, 0, 0);
   p2 = new Tank(width*4/5, height*4/5, 0, 255, 0);
-  levelController = new LevelController(p1, p2, p1.bullet, p2.bullet);
+  levelController = new LevelController(p1, p2, p1.bulleta, p1.bulletb, p2.bulleta, p2.bulletb);
 }
 void draw() {
   background(255);

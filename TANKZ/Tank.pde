@@ -2,14 +2,16 @@ class Tank {
   public PVector pos;
   public float angle;
   boolean loaded;
-  Bullet bullet;
+  Bullet bulleta;
+  Bullet bulletb;
   color c;
 
   Tank (float pos_x, float pos_y, int r, int g, int b) {
     pos = new PVector(pos_x, pos_y);
     loaded = true;
     c=color(r, g, b);
-    bullet = new Bullet(random(0, 1000), -50, 0, 0);
+    bulleta = new Bullet(random(0, 1000), -50, 0, 0);
+    bulletb = new Bullet(random(0, 1000), -50, 0, 0);
   }
 
   void update() {
@@ -22,9 +24,10 @@ class Tank {
     rect(6, TANK_HEIGHT/2+TANK_HEIGHT/8, -12, -TANK_HEIGHT*5/8);
     circle(0, 0, 40);
     popMatrix();
-    bullet.Update();
+    bulleta.Update();
+    bulletb.Update();
 
-     if (pos.x > width && pos.x < (width + 100))
+    if (pos.x > width && pos.x < (width + 100))
     {
       pos.x -= width;
     } else if (pos.x < 0 && pos.x > -100)
@@ -43,16 +46,24 @@ class Tank {
 
   void Shoot()
   {
-    if (bullet.deathTimer == 0)
+    if (bulleta.deathTimer == 0)
     {
-      bullet.deathTimer = 600;
-      bullet.pos.x = pos.x + sin(-angle)*(TANK_WIDTH+80)/2;
-      bullet.pos.y = pos.y + cos(-angle)*(TANK_HEIGHT+50)/2;
-      bullet.vel.x = BULLET_SPEED*sin(-angle);
-      bullet.vel.y = BULLET_SPEED*cos(-angle);
+      bulleta.deathTimer = 600;
+      bulleta.pos.x = pos.x + sin(-angle)*(TANK_WIDTH+80)/2;
+      bulleta.pos.y = pos.y + cos(-angle)*(TANK_HEIGHT+50)/2;
+      bulleta.vel.x = BULLET_SPEED*sin(-angle);
+      bulleta.vel.y = BULLET_SPEED*cos(-angle);
+    }
+    else if (bulletb.deathTimer == 0)
+    {
+      bulletb.deathTimer = 600;
+      bulletb.pos.x = pos.x + sin(-angle)*(TANK_WIDTH+80)/2;
+      bulletb.pos.y = pos.y + cos(-angle)*(TANK_HEIGHT+50)/2;
+      bulletb.vel.x = BULLET_SPEED*sin(-angle);
+      bulletb.vel.y = BULLET_SPEED*cos(-angle);
     }
   }
   void HideTank() {
-    pos = new PVector(-1000,-1000);
+    pos = new PVector(-1000, -1000);
   }
 }

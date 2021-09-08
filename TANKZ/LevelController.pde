@@ -8,16 +8,18 @@ class LevelController {
   int p1Score;
   int p2Score;
   Tank t1, t2;
-  Bullet b1, b2;
+  Bullet b1a, b1b, b2a, b2b;
 
-  LevelController(Tank tank1, Tank tank2, Bullet bullet1, Bullet bullet2) {
+  LevelController(Tank tank1, Tank tank2, Bullet bullet1a, Bullet bullet1b, Bullet bullet2a, Bullet bullet2b) {
 
 
 
     t1 = tank1;
     t2 = tank2;
-    b1 = bullet1;
-    b2 = bullet2;
+    b1a = bullet1a;
+    b1b = bullet1b;
+    b2a = bullet2a;
+    b2b = bullet2b;
     p1Score = 0;
     p2Score = 0;
     restartTimer = -1;
@@ -38,8 +40,10 @@ class LevelController {
         t1.pos = new PVector(random(width), random(height));
         t2.pos = new PVector(random(width), random(height));
         firstSpawn=false;
-        b1.deathTimer = 0;
-        b2.deathTimer = 0;
+        b1a.deathTimer = 0;
+        b2a.deathTimer = 0;
+        b1b.deathTimer = 0;
+        b2b.deathTimer = 0;
         CreateWalls();
       }
 
@@ -113,55 +117,107 @@ class LevelController {
         PVector diffe = new PVector(t2.pos.x-wall.pos.x, t2.pos.y-wall.pos.y);
         t2.pos = PVector.add(wall.pos, diffe.normalize().mult(TANK_WIDTH/2+wall.radius/2));
       }
-      if (Collide(wall.pos.x, wall.pos.y, wall.radius/2, b1.pos.x, b1.pos.y, CIRCLE_RADIUS))
+      if (Collide(wall.pos.x, wall.pos.y, wall.radius/2, b1a.pos.x, b1a.pos.y, CIRCLE_RADIUS))
       {
-        PVector diffe = new PVector(b1.pos.x-wall.pos.x, b1.pos.y-wall.pos.y);
-        b1.pos = PVector.add(wall.pos, diffe.normalize().mult(CIRCLE_RADIUS+wall.radius/2));
+        PVector diffe = new PVector(b1a.pos.x-wall.pos.x, b1a.pos.y-wall.pos.y);
+        b1a.pos = PVector.add(wall.pos, diffe.normalize().mult(CIRCLE_RADIUS+wall.radius/2));
 
-        PVector commonTangent = new PVector(wall.pos.y-b1.pos.y, b1.pos.x-wall.pos.x);
-        float dotProduct = b1.vel.dot(commonTangent);
+        PVector commonTangent = new PVector(wall.pos.y-b1a.pos.y, b1a.pos.x-wall.pos.x);
+        float dotProduct = b1a.vel.dot(commonTangent);
         float tangentLength = commonTangent.dist(new PVector(0, 0));
-        PVector projection = commonTangent.mult(dotProduct/(tangentLength*tangentLength)).add(b1.vel.mult(-1));
-        b1.vel.mult(-1);
-        b1.vel.add(projection.mult(2));
+        PVector projection = commonTangent.mult(dotProduct/(tangentLength*tangentLength)).add(b1a.vel.mult(-1));
+        b1a.vel.mult(-1);
+        b1a.vel.add(projection.mult(2));
       }
-      if (Collide(wall.pos.x, wall.pos.y, wall.radius/2, b2.pos.x, b2.pos.y, CIRCLE_RADIUS))
+      if (Collide(wall.pos.x, wall.pos.y, wall.radius/2, b2a.pos.x, b2a.pos.y, CIRCLE_RADIUS))
       {
-        PVector diffe = new PVector(b2.pos.x-wall.pos.x, b2.pos.y-wall.pos.y);
-        b2.pos = PVector.add(wall.pos, diffe.normalize().mult(CIRCLE_RADIUS+wall.radius/2));
+        PVector diffe = new PVector(b2a.pos.x-wall.pos.x, b2a.pos.y-wall.pos.y);
+        b2a.pos = PVector.add(wall.pos, diffe.normalize().mult(CIRCLE_RADIUS+wall.radius/2));
 
-        PVector commonTangent = new PVector(wall.pos.y-b2.pos.y, b2.pos.x-wall.pos.x);
-        float dotProduct = b2.vel.dot(commonTangent);
+        PVector commonTangent = new PVector(wall.pos.y-b2a.pos.y, b2a.pos.x-wall.pos.x);
+        float dotProduct = b2a.vel.dot(commonTangent);
         float tangentLength = commonTangent.dist(new PVector(0, 0));
         PVector projection = commonTangent.mult(dotProduct/(tangentLength*tangentLength));
-        b2.vel.mult(-1);
-        b2.vel.add(projection.mult(2));
+        b2a.vel.mult(-1);
+        b2a.vel.add(projection.mult(2));
       }
-      if (Collide(t1.pos.x, t1.pos.y, TANK_WIDTH/1.5, b2.pos.x, b2.pos.y, CIRCLE_RADIUS))
+      if (Collide(wall.pos.x, wall.pos.y, wall.radius/2, b1b.pos.x, b1b.pos.y, CIRCLE_RADIUS))
+      {
+        PVector diffe = new PVector(b1b.pos.x-wall.pos.x, b1b.pos.y-wall.pos.y);
+        b1b.pos = PVector.add(wall.pos, diffe.normalize().mult(CIRCLE_RADIUS+wall.radius/2));
+
+        PVector commonTangent = new PVector(wall.pos.y-b1b.pos.y, b1b.pos.x-wall.pos.x);
+        float dotProduct = b1b.vel.dot(commonTangent);
+        float tangentLength = commonTangent.dist(new PVector(0, 0));
+        PVector projection = commonTangent.mult(dotProduct/(tangentLength*tangentLength)).add(b1b.vel.mult(-1));
+        b1b.vel.mult(-1);
+        b1b.vel.add(projection.mult(2));
+      }
+      if (Collide(wall.pos.x, wall.pos.y, wall.radius/2, b2b.pos.x, b2b.pos.y, CIRCLE_RADIUS))
+      {
+        PVector diffe = new PVector(b2b.pos.x-wall.pos.x, b2b.pos.y-wall.pos.y);
+        b2b.pos = PVector.add(wall.pos, diffe.normalize().mult(CIRCLE_RADIUS+wall.radius/2));
+
+        PVector commonTangent = new PVector(wall.pos.y-b2b.pos.y, b2b.pos.x-wall.pos.x);
+        float dotProduct = b2b.vel.dot(commonTangent);
+        float tangentLength = commonTangent.dist(new PVector(0, 0));
+        PVector projection = commonTangent.mult(dotProduct/(tangentLength*tangentLength));
+        b2b.vel.mult(-1);
+        b2b.vel.add(projection.mult(2));
+      }
+      if (Collide(t1.pos.x, t1.pos.y, TANK_WIDTH/1.5, b2a.pos.x, b2a.pos.y, CIRCLE_RADIUS))
       {
         t1.HideTank();
-        b2.HideBullet();
+        b2a.deathTimer = 0;
         p2Score++;
         restartTimer = 360;
       }
-      if (Collide(t1.pos.x, t1.pos.y, TANK_WIDTH/1.5, b1.pos.x, b1.pos.y, CIRCLE_RADIUS))
+      if (Collide(t1.pos.x, t1.pos.y, TANK_WIDTH/1.5, b1a.pos.x, b1a.pos.y, CIRCLE_RADIUS))
       {
         t1.HideTank();
-        b1.HideBullet();
+        b1a.deathTimer = 0;
         p2Score++;
         restartTimer = 360;
       }
-      if (Collide(t2.pos.x, t2.pos.y, TANK_WIDTH/1.5, b2.pos.x, b2.pos.y, CIRCLE_RADIUS))
+      if (Collide(t2.pos.x, t2.pos.y, TANK_WIDTH/1.5, b2a.pos.x, b2a.pos.y, CIRCLE_RADIUS))
       {
         t2.HideTank();
-        b2.HideBullet();
+        b2a.deathTimer = 0;
         p1Score++;
         ResetLevel();
       }
-      if (Collide(t2.pos.x, t2.pos.y, TANK_WIDTH/1.5, b1.pos.x, b1.pos.y, CIRCLE_RADIUS))
+      if (Collide(t2.pos.x, t2.pos.y, TANK_WIDTH/1.5, b1a.pos.x, b1a.pos.y, CIRCLE_RADIUS))
       {
         t2.HideTank();
-        b1.HideBullet();
+        b1a.deathTimer = 0;
+        p1Score++;
+        restartTimer = 360;
+      }
+      if (Collide(t1.pos.x, t1.pos.y, TANK_WIDTH/1.5, b2b.pos.x, b2b.pos.y, CIRCLE_RADIUS))
+      {
+        t1.HideTank();
+        b2b.deathTimer = 0;
+        p2Score++;
+        restartTimer = 360;
+      }
+      if (Collide(t1.pos.x, t1.pos.y, TANK_WIDTH/1.5, b1b.pos.x, b1b.pos.y, CIRCLE_RADIUS))
+      {
+        t1.HideTank();
+        b1b.deathTimer = 0;
+        p2Score++;
+        restartTimer = 360;
+      }
+      if (Collide(t2.pos.x, t2.pos.y, TANK_WIDTH/1.5, b2b.pos.x, b2b.pos.y, CIRCLE_RADIUS))
+      {
+        t2.HideTank();
+        b2b.deathTimer = 0;
+        p1Score++;
+        ResetLevel();
+      }
+      if (Collide(t2.pos.x, t2.pos.y, TANK_WIDTH/1.5, b1b.pos.x, b1b.pos.y, CIRCLE_RADIUS))
+      {
+        t2.HideTank();
+        b1b.deathTimer = 0;
         p1Score++;
         restartTimer = 360;
       }
@@ -175,8 +231,10 @@ class LevelController {
   }
 
   void ResetLevel() {
-    b1.deathTimer = 0;
-    b2.deathTimer = 0;
+    b1a.deathTimer = 0;
+    b2a.deathTimer = 0;
+    b1b.deathTimer = 0;
+    b2b.deathTimer = 0;
     restartTimer = -1;
     t1.pos = new PVector(random(width), random(height));
     t2.pos = new PVector(random(width), random(height));
