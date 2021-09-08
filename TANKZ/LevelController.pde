@@ -170,56 +170,56 @@ class LevelController {
         t1.HideTank();
         b2a.deathTimer = 0;
         p2Score++;
-        restartTimer = 360;
+        restartTimer = 180;
       }
       if (Collide(t1.pos.x, t1.pos.y, TANK_WIDTH/1.5, b1a.pos.x, b1a.pos.y, CIRCLE_RADIUS))
       {
         t1.HideTank();
         b1a.deathTimer = 0;
         p2Score++;
-        restartTimer = 360;
+        restartTimer = 180;
       }
       if (Collide(t2.pos.x, t2.pos.y, TANK_WIDTH/1.5, b2a.pos.x, b2a.pos.y, CIRCLE_RADIUS))
       {
         t2.HideTank();
         b2a.deathTimer = 0;
         p1Score++;
-        ResetLevel();
+        restartTimer = 180;
       }
       if (Collide(t2.pos.x, t2.pos.y, TANK_WIDTH/1.5, b1a.pos.x, b1a.pos.y, CIRCLE_RADIUS))
       {
         t2.HideTank();
         b1a.deathTimer = 0;
         p1Score++;
-        restartTimer = 360;
+        restartTimer = 180;
       }
       if (Collide(t1.pos.x, t1.pos.y, TANK_WIDTH/1.5, b2b.pos.x, b2b.pos.y, CIRCLE_RADIUS))
       {
         t1.HideTank();
         b2b.deathTimer = 0;
         p2Score++;
-        restartTimer = 360;
+        restartTimer = 180;
       }
       if (Collide(t1.pos.x, t1.pos.y, TANK_WIDTH/1.5, b1b.pos.x, b1b.pos.y, CIRCLE_RADIUS))
       {
         t1.HideTank();
         b1b.deathTimer = 0;
         p2Score++;
-        restartTimer = 360;
+        restartTimer = 180;
       }
       if (Collide(t2.pos.x, t2.pos.y, TANK_WIDTH/1.5, b2b.pos.x, b2b.pos.y, CIRCLE_RADIUS))
       {
         t2.HideTank();
         b2b.deathTimer = 0;
         p1Score++;
-        ResetLevel();
+        restartTimer = 180;
       }
       if (Collide(t2.pos.x, t2.pos.y, TANK_WIDTH/1.5, b1b.pos.x, b1b.pos.y, CIRCLE_RADIUS))
       {
         t2.HideTank();
         b1b.deathTimer = 0;
         p1Score++;
-        restartTimer = 360;
+        restartTimer = 180;
       }
     }
   }

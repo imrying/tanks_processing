@@ -48,7 +48,7 @@ class Tank {
   {
     if (bulleta.deathTimer == 0)
     {
-      bulleta.deathTimer = 600;
+      bulleta.deathTimer = 300;
       bulleta.pos.x = pos.x + sin(-angle)*(TANK_WIDTH+80)/2;
       bulleta.pos.y = pos.y + cos(-angle)*(TANK_HEIGHT+50)/2;
       bulleta.vel.x = BULLET_SPEED*sin(-angle);
@@ -56,7 +56,7 @@ class Tank {
     }
     else if (bulletb.deathTimer == 0)
     {
-      bulletb.deathTimer = 600;
+      bulletb.deathTimer = 300;
       bulletb.pos.x = pos.x + sin(-angle)*(TANK_WIDTH+80)/2;
       bulletb.pos.y = pos.y + cos(-angle)*(TANK_HEIGHT+50)/2;
       bulletb.vel.x = BULLET_SPEED*sin(-angle);

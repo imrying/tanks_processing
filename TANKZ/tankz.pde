@@ -1,9 +1,9 @@
 int TANK_WIDTH = 50;
 int TANK_HEIGHT = 80;
-float SPEED = 3;
+float SPEED = 6;
 float CIRCLE_RADIUS = 10;
-float ANGLE_SPEED = 0.045;
-float BULLET_SPEED = 5;
+float ANGLE_SPEED = 0.09;
+float BULLET_SPEED = 10;
 
 Tank p1;
 Tank p2;
@@ -14,7 +14,7 @@ void settings() {
 }
 
 void setup() {
-  frameRate(120);
+  frameRate(60);
   background(255);
   noStroke();
   smooth();
@@ -24,7 +24,7 @@ void setup() {
 }
 void draw() {
   background(255);
-  text(frameRate, width/2, height/2);
+  //text(frameRate, width/2, height/2);
 
   Controls();
 
