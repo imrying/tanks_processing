@@ -24,12 +24,11 @@ void setup() {
 }
 void draw() {
   background(255);
+  text(frameRate, width/2, height/2);
 
   Controls();
-  
+
   levelController.update();
   p1.update();
   p2.update();
-  
-  
 }
