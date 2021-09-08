@@ -40,9 +40,4 @@ class Bullet {
       pos.y += height;
     }
   }
-
-  void HideBullet() {
-    pos = new PVector(-500,-500);
-    vel = new PVector(0,0);
-  }
 }
