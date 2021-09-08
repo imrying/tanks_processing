@@ -38,9 +38,9 @@ class LevelController {
         t1.pos = new PVector(random(width), random(height));
         t2.pos = new PVector(random(width), random(height));
         firstSpawn=false;
+        b1.deathTimer = 0;
+        b2.deathTimer = 0;
         CreateWalls();
-        b1.HideBullet();
-        b2.HideBullet();
       }
 
       for (Wall wall : walls) {
@@ -175,9 +175,11 @@ class LevelController {
   }
 
   void ResetLevel() {
-    b1.HideBullet();
-    b2.HideBullet();
+    b1.deathTimer = 0;
+    b2.deathTimer = 0;
     restartTimer = -1;
-    firstSpawn = true;
+    t1.pos = new PVector(random(width), random(height));
+    t2.pos = new PVector(random(width), random(height));
+    firstSpawn=false;
   }
 }
