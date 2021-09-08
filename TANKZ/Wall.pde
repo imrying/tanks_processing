@@ -1,7 +1,6 @@
 class Wall {
    public PVector pos;
    public int radius;
-   public float angle;
    
    Wall (float wall_x, float wall_y, int r) {
      pos = new PVector(wall_x,wall_y);
