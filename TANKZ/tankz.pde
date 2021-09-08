@@ -14,7 +14,7 @@ void settings() {
 }
 
 void setup() {
-  frameRate(120);
+  frameRate(60);
   background(255);
   noStroke();
   smooth();
